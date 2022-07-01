@@ -56,4 +56,11 @@ public class ProductController {
 		
 		return "product_form";
 	}
+	
+	@GetMapping("products/delete/{id}")
+	public String deleteProduct(@PathVariable("id") Integer id, Model model) {
+		productRepo.deleteById(id);
+		
+		return "redirect:/products";
+	}
 }
