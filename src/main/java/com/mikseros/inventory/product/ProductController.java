@@ -50,6 +50,10 @@ public class ProductController {
 		Product product = productRepo.findById(id).get();
 		model.addAttribute("product", product);
 		
+		List<Category> listCategories = categoryRepo.findAll();
+		
+		model.addAttribute("listCategories", listCategories);
+		
 		return "product_form";
 	}
 }
