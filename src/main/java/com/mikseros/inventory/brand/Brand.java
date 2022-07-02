@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 import com.mikseros.inventory.category.Category;
@@ -22,7 +23,8 @@ public class Brand {
 	@Column(length = 45, nullable = false, unique = true)
 	private String name;
 	
-	@OneToMany(mappedBy = "brand")
+	@OneToMany
+	@JoinColumn(name = "brand_id")
 	private List<Category> categories = new ArrayList<>();
 
 	public Integer getId() {
