@@ -1,17 +1,19 @@
-package com.mikseros.inventory.category;
+package com.mikseros.inventory.brand;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
-import com.mikseros.inventory.brand.Brand;
+import com.mikseros.inventory.category.Category;
 
 @Entity
-public class Category {
+public class Brand {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,41 +22,31 @@ public class Category {
 	@Column(length = 45, nullable = false, unique = true)
 	private String name;
 	
-	@ManyToOne
-	@JoinColumn(name = "brand_id")
-	private Brand brand;
-	
-	public Category() {
-		
-	}
+	@OneToMany(mappedBy = "brand")
+	private List<Category> categories = new ArrayList<>();
 
-	public Category(Integer id) {
-		this.id = id;
-	}
-	
-	public Category(String name) {
-		this.name = name;
-	}
-	
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	public Brand getBrand() {
-		return brand;
+	public List<Category> getCategories() {
+		return categories;
 	}
 
-	public void setBrand(Brand brand) {
-		this.brand = brand;
+	public void setCategories(List<Category> categories) {
+		this.categories = categories;
 	}
 	
 }
