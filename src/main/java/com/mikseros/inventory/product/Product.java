@@ -1,5 +1,9 @@
 package com.mikseros.inventory.product;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import com.mikseros.inventory.category.Category;
 
@@ -24,6 +29,9 @@ public class Product {
 	@ManyToOne
 	@JoinColumn(name = "category_id")
 	private Category category;
+	
+	@OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+	private List<ProductDetails> details = new ArrayList<>();
 
 	public Integer getId() {
 		return id;
