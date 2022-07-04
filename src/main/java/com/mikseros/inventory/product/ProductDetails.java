@@ -26,6 +26,16 @@ public class ProductDetails {
 	@ManyToOne
 	@JoinColumn(name = "product_id")
 	private Product product;
+	
+	public ProductDetails() {
+		
+	}
+
+	public ProductDetails(String name, String value, Product product) {
+		this.name = name;
+		this.value = value;
+		this.product = product;
+	}
 
 	public Integer getId() {
 		return id;
