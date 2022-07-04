@@ -65,4 +65,7 @@ public class Product {
 		this.category = category;
 	}
 	
+	public void addDetail(String name, String value) {
+		this.details.add(new ProductDetails(name, value, this));
+	}
 }
