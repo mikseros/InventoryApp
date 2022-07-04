@@ -2,6 +2,8 @@ package com.mikseros.inventory.product;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,7 +34,14 @@ public class ProductController {
 	}
 	
 	@PostMapping("/products/save")
-	public String saveProduct(Product product) {
+	public String saveProduct(Product product, HttpServletRequest request) {
+		String[] detailNames = request.getParameterValues("detailName");
+		String[] detailValues = request.getParameterValues("detailValue");
+		
+		for (int i = 0; i < detailNames.length; i++) {
+			product.addDetail(detailNames[i], detailValues[i]);
+		}
+		
 		productRepo.save(product);
 		
 		return "redirect:/products";
