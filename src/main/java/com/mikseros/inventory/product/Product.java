@@ -68,4 +68,13 @@ public class Product {
 	public void addDetail(String name, String value) {
 		this.details.add(new ProductDetails(name, value, this));
 	}
+
+	public List<ProductDetails> getDetails() {
+		return details;
+	}
+
+	public void setDetails(List<ProductDetails> details) {
+		this.details = details;
+	}
+	
 }
