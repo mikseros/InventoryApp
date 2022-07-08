@@ -9,6 +9,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.annotation.Rollback;
 
 import com.mikseros.inventory.user.Role;
+import com.mikseros.inventory.user.User;
 import com.mikseros.inventory.user.UserRepository;
 
 @DataJpaTest
@@ -31,5 +32,14 @@ public class UserRepositoryTests {
 		entityManager.persist(roleAdmin);
 		entityManager.persist(roleEditor);
 		entityManager.persist(roleVisitor);
+	}
+	
+	@Test
+	public void testCreateNewUserWithOneRole() {
+		Role roleAdmin = entityManager.find(Role.class, 1);
+		User user = new User("xxx@xxx.com", "123456");
+		user.addRole(roleAdmin);
+		
+		repo.save(user);
 	}
 }
