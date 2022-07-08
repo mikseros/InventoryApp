@@ -24,6 +24,11 @@ public class User {
 	@Column(length = 10, nullable = false)
 	private String password;
 
+	public User(String email, String password) {
+		this.email = email;
+		this.password = password;
+	}
+
 	@ManyToMany
 	@JoinTable(
 			name = "user_role",
@@ -62,5 +67,9 @@ public class User {
 
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
+	}
+	
+	public void addRole(Role role) {
+		this.roles.add(role);
 	}
 }
