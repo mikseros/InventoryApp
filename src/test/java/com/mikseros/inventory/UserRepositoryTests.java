@@ -42,4 +42,15 @@ public class UserRepositoryTests {
 		
 		repo.save(user);
 	}
+	
+	@Test
+	public void testCreateNewUserWithTwoRoles() {
+		Role roleEditor = entityManager.find(Role.class, 2);
+		Role roleVisitor = entityManager.find(Role.class, 3);
+		User user = new User("xxx2@xxx.com", "123456");
+		user.addRole(roleEditor);
+		user.addRole(roleVisitor);
+		
+		repo.save(user);
+	}
 }
