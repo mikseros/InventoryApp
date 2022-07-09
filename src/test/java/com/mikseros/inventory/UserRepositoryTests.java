@@ -53,4 +53,12 @@ public class UserRepositoryTests {
 		
 		repo.save(user);
 	}
+	
+	@Test
+	public void testAssignRoleToExistingUser() {
+		User user = repo.findById(1).get();
+		Role roleEditor = entityManager.find(Role.class, 2);
+		
+		user.addRole(roleEditor);
+	}
 }
