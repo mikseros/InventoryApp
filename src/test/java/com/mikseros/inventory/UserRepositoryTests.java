@@ -61,4 +61,11 @@ public class UserRepositoryTests {
 		
 		user.addRole(roleEditor);
 	}
+	
+	@Test
+	public void testRemoveRoleFromExistingUser() {
+		User user = repo.findById(1).get();
+		Role role = new Role(2);
+		user.removeRole(role);
+	}
 }
