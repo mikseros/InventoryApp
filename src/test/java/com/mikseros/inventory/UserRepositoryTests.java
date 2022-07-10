@@ -68,4 +68,13 @@ public class UserRepositoryTests {
 		Role role = new Role(2);
 		user.removeRole(role);
 	}
+	
+	@Test
+	public void testCreateNewUserWithNewRole() {
+		Role roleSalesperson = new Role("Salesperson");
+		User user = new User("john@gmail.com", "123456");
+		user.addRole(roleSalesperson);
+		
+		repo.save(user);
+	}
 }
