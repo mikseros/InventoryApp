@@ -36,7 +36,8 @@ public class User {
 	}
 
 	// fetch = FetchType.EAGER for load associated with user Entities
-	@ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+//	@ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+	@ManyToMany
 	@JoinTable(
 			name = "user_role",
 			joinColumns = @JoinColumn(name = "user_id"),
