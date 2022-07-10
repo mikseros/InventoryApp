@@ -3,6 +3,7 @@ package com.mikseros.inventory.user;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,7 +34,7 @@ public class User {
 		this.password = password;
 	}
 
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.PERSIST)
 	@JoinTable(
 			name = "user_role",
 			joinColumns = @JoinColumn(name = "user_id"),
