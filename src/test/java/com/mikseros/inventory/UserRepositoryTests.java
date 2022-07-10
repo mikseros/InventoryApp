@@ -87,4 +87,9 @@ public class UserRepositoryTests {
 		System.out.println(user.getEmail());
 		System.out.println(user.getRoles());
 	}
+	
+	@Test
+	public void testRemoveUser() {
+		repo.deleteById(3);
+	}
 }
