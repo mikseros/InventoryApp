@@ -81,6 +81,9 @@ public class UserRepositoryTests {
 	@Test
 	public void testGetUser() {
 		User user = repo.findById(1).get();
+		// When object is detached from the session, we can not fetch associated entities
+		// because it is LAZY initialize by default.
+		entityManager.detach(user);
 		System.out.println(user.getEmail());
 		System.out.println(user.getRoles());
 	}
