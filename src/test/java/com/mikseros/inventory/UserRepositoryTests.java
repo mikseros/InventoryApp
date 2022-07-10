@@ -77,4 +77,11 @@ public class UserRepositoryTests {
 		
 		repo.save(user);
 	}
+	
+	@Test
+	public void testGetUser() {
+		User user = repo.findById(1).get();
+		System.out.println(user.getEmail());
+		System.out.println(user.getRoles());
+	}
 }
