@@ -13,10 +13,21 @@ public class UserController {
 	@Autowired
 	private UserRepository userRepo;
 	
+	@Autowired
+	private RoleRepository roleRepo;
+	
 	@GetMapping("/users")
 	public String showUsersList(Model model) {
 		List<User> listUsers = userRepo.findAll();
 		model.addAttribute("listUsers", listUsers);
 		return "users";
+	}
+	
+	@GetMapping("/users/new")
+	public String showCreateNewUserForm(Model model) {
+		List<Role> listRoles = roleRepo.findAll();
+		model.addAttribute("listRoles", listRoles);
+		model.addAttribute("user", new User());
+		return "user_form";
 	}
 }
