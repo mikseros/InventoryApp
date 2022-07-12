@@ -7,10 +7,14 @@
 </head>
 <body>
 	<div class="container text-center">
-		<div>
+		<div th:if="${user.id == null}">
 			<h1>Create New User</h1>
 		</div>
+		<div th:unless="${user.id == null}">
+			<h1>Edit User</h1>
+		</div>
 		<form th:action="@{/users/save}" th:object="${user}" method="POST" style="max-width: 600px; margin: 0 auto">
+			<input type="hidden" th:field="*{id}" />
 			<div class="m-3">
 				<div class="form-group row">
 					<label class="col-form-label col-sm-4">User Email: </label>
