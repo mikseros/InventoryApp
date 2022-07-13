@@ -33,4 +33,14 @@ public class ShoppingCartTests {
 		
 		repo.save(item);
 	}
+	
+	@Test
+	public void testAddItemByIds() {
+		Product product = new Product(2);
+		User user = new User(2);
+		
+		CartItem item = new CartItem(2, product, user);
+		
+		repo.save(item);
+	}
 }
