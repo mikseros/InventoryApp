@@ -71,5 +71,9 @@ public class CartItem {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "CartItem [id=" + id + ", quantity=" + quantity + ", product=" + product + ", user=" + user + "]";
+	}
 }
