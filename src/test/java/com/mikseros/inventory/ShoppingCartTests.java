@@ -73,4 +73,9 @@ public class ShoppingCartTests {
 		cartItem.setQuantity(10);
 		cartItem.setProduct(new Product(3));
 	}
+	
+	@Test
+	public void testDeleteItem() {
+		repo.deleteById(5);
+	}
 }
