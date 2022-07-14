@@ -88,4 +88,9 @@ public class Product {
 	public void setDetail(Integer id, String name, String value) {
 		this.details.add(new ProductDetails(id, name, value, this));
 	}
+
+	@Override
+	public String toString() {
+		return "Product [name=" + name + "]";
+	}
 }
