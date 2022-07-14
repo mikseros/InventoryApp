@@ -88,4 +88,9 @@ public class User {
 	public void removeRole(Role role) {
 		this.roles.remove(role);
 	}
+
+	@Override
+	public String toString() {
+		return "User [email=" + email + "]";
+	}
 }
