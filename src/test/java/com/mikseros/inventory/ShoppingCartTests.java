@@ -60,4 +60,10 @@ public class ShoppingCartTests {
 		repo.saveAll(List.of(item1, item2, item3));
 		
 	}
+	
+	@Test
+	public void testListItems() {
+		List<CartItem> listItems = repo.findAll();
+		listItems.forEach(System.out::println);
+	}
 }
