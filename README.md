@@ -1,4 +1,4 @@
-#A InventoryApp
+## InventoryApp
 
 CRUD operations on one-to-many & many-to-many relationships in a Spring Boot application based on Spring Data JPA, Thymeleaf, Bootstrap and MySQL DB.
 
